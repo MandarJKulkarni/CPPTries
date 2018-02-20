@@ -37,4 +37,5 @@ int main()
     do_work.detach();
     std::cout<< f3.get()<<std::endl;
 
+    return 0;
 }
