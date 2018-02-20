@@ -31,11 +31,5 @@ int main()
     task();
     std::cout<< f2.get()<<std::endl;
 
-    std::promise<int> p;
-    std::future<int> f3 = p.get_future();
-    std::thread do_work([&p](){std::cout<<"working \n";p.set_value(5);});
-    do_work.detach();
-    std::cout<< f3.get()<<std::endl;
-
     return 0;
 }
