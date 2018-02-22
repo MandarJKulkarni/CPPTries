@@ -1,1 +1,1 @@
-# CPPTries
+# Play ground for C++ concepts
