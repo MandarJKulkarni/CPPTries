@@ -11,13 +11,17 @@ int main()
     std::mutex m;
 
     std::future<void> f1 = std::async(std::launch::async, [&sf, &m]()
-                                      {sf.wait();
-                                          m.lock();std::cout<<"received signal from promise in thread1 \n";m.unlock();}
+                                      {   sf.wait();
+                                          m.lock();
+                                          std::cout<<"received signal from promise in thread1 \n";
+                                          m.unlock();}
     );
 
     std::future<void> f2 = std::async(std::launch::async,[&sf, &m]()
-                                      {sf.wait();
-                                          m.lock();std::cout<<"received signal from promise in thread2 \n";m.unlock();}
+                                      {   sf.wait();
+                                          m.lock();
+                                          std::cout<<"received signal from promise in thread2 \n";
+                                          m.unlock();}
     );
 
     p2.set_value();
