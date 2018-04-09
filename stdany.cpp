@@ -25,6 +25,12 @@ int main()
 	std::any emptyObj;
 	std::cout << emptyObj.type().name() << "\n";
 
+	//Creating a vector of different data types
+	auto a = std::any(22);
+	auto f = std::make_any<float>(9.9);
+	auto str = std::make_any<std::string> ("str");
+	std::vector<std::any> v {a,f,str};
+	std::cout << std::any_cast<int>(v[0]) << '\n';
 	
 	return 0;
 }
