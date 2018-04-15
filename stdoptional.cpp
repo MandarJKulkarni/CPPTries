@@ -1,6 +1,5 @@
 
 #include <optional>
-#include <iostream>
 
 int main()
 {
