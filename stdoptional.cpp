@@ -1,4 +1,3 @@
-
 #include <optional>
 
 int main()
@@ -12,6 +11,5 @@ int main()
 		int val2 = opt.value();
 	}
 
-	return opt.value();
+	return opt.value_or(3);
 }
-
