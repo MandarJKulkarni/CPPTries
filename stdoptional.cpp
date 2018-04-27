@@ -1,5 +1,4 @@
 #include <optional>
-
 int main()
 {
 	std::optional<int> opt1 = std::nullopt;
