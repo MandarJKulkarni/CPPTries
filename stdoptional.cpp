@@ -8,7 +8,15 @@ int main()
 	{
 		int val = *opt;
 		int val2 = opt.value();
+		opt = std::nullopt;
+		try
+		{
+			int noVal = opt.value();
+		}
+		catch (const std::bad_optional_access &ex)
+		{
+			std::cout << ex.what() << std::endl;
+		}
 	}
-
 	return opt.value_or(3);
 }
