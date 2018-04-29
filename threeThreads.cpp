@@ -3,29 +3,37 @@
 #include <mutex>
 
 int currentCount = 0;
+std::mutex m1;
+std::condition_variable cv, t1cv, t2cv, t3cv;
 void print(int i)
 {
-	std::mutex m1;
-	m1.lock();
-	if (i - currentCount == 1 || currentCount - i ==2)
+	
+	std::unique_lock<std::mutex> lk(m1);
+	cv.wait(lk, [i] {return i - currentCount == 1 || currentCount - i == 2; });
 	{
-		std::cout << i << std::endl;
-		std::condition_variable cv;
+		std::cout << i << "	";
 		currentCount = i;
 	}
-	m1.unlock();
+	//This is not needed as we are using one function for 3 threads
+	/*lk.unlock();
+	cv.notify_one();*/
 }
 void main()
 {
-	std::thread t1(print,1);
-	_sleep(1);
-	std::thread t2(print, 2);
-	_sleep(1);
-	std::thread t3(print, 3);
+	while (true)
+	{
+		std::thread t1(print, 1);
+		//_sleep(1);
+		std::thread t2(print, 2);
+		//_sleep(1);
+		std::thread t3(print, 3);
 
-	t1.join();
+		t1.join();
+
+		t2.join();
+
+		t3.join();
+		std::cout << std::endl;
+	}
 	
-	t2.join();
-	
-	t3.join();
 }
