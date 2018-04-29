@@ -4,7 +4,7 @@
 
 int currentCount = 0;
 std::mutex m1;
-std::condition_variable cv, t1cv, t2cv, t3cv;
+std::condition_variable cv;
 void print(int i)
 {
 	
