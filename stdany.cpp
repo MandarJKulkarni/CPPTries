@@ -13,7 +13,7 @@ int main()
     }
     catch (const std::bad_any_cast &ex)
     {
-        std::cout << "Caught bad_any_cast exception " << ex.what() << "\n";
+        std::cout << ex.what() << "\n";
     }
     std::cout << i.type().name() << "\n";
 
