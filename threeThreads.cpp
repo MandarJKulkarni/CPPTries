@@ -37,3 +37,5 @@ void main()
 	}
 	
 }
+//The other way to do this would be:
+// 3 threads, 3 functions and 3 conditional variables
