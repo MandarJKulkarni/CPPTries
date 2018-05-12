@@ -26,7 +26,14 @@ int main()
 		std::cout << typeid(ex).name() << " " << ex.what();
 	}
 
-	if(std::holds_alternative<float>(var1) == true) // succeeds
+	int *i = std::get_if<int>(&var1);
+	if(i)
+		std::cout << *i << std::endl;
+	float *f3 = std::get_if<float>(&var1);
+	if (f3)
+		std::cout << *f3 << std::endl;
+	
+	if (std::holds_alternative<float>(var1) == true) // succeeds
 	{
 		var1 = 100;
 		if (std::holds_alternative<int>(var1) == true) //succeeds
@@ -35,11 +42,10 @@ int main()
 		}
 	}
 
-	int *i = std::get_if<int>(&var1);
-	if(i)
-		std::cout << *i << std::endl;
-	float *f3 = std::get_if<float>(&var1);
-	if (f3)
-		std::cout << *f3 << std::endl;
+	if (var1.valueless_by_exception())
+	{
+		int x = 100;
+	}
 
+	std::visit([](auto const &e) {std::cout << e; }, var1);
 }
