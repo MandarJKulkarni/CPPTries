@@ -27,12 +27,13 @@ int main()
 	}
 
 	int *i = std::get_if<int>(&var1);
-	if(i)
+	if(i) {
 		std::cout << *i << std::endl;
+	}
 	float *f3 = std::get_if<float>(&var1);
-	if (f3)
+	if (f3) {
 		std::cout << *f3 << std::endl;
-	
+	}
 	if (std::holds_alternative<float>(var1) == true) // succeeds
 	{
 		var1 = 100;
