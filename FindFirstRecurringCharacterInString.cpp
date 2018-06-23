@@ -41,12 +41,12 @@ int main()
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	char n = FindTheFirstRecurringCharacterInStringUsingString("abc");								//10211 ns
+	char n = FindTheFirstRecurringCharacterInStringUsingString("abc");				//10211 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	r = FindTheFirstRecurringCharacterInStringUsingString("aabbccdd");								//9846 ns
+	r = FindTheFirstRecurringCharacterInStringUsingString("aabbccdd");				//9846 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
@@ -56,12 +56,12 @@ int main()
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	n = FindTheFirstRecurringCharacterInStrinUsingHash("abc");										//54701 ns
+	n = FindTheFirstRecurringCharacterInStrinUsingHash("abc");						//54701 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	r = FindTheFirstRecurringCharacterInStrinUsingHash("aabbccdd");									//35738 ns
+	r = FindTheFirstRecurringCharacterInStrinUsingHash("aabbccdd");						//35738 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
