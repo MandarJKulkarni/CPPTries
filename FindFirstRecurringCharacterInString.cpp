@@ -16,7 +16,7 @@ char FindTheFirstRecurringCharacterInStringUsingString(const char* str)
 	return '\0';
 }
 
-char FindTheFirstRecurringCharacterInStrinUsingHash(const char* str)
+char FindTheFirstRecurringCharacterInStrinUsingMap(const char* str)
 {
 	std::unordered_map<char, int> charToCount;
 
@@ -48,17 +48,17 @@ int main()
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	r = FindTheFirstRecurringCharacterInStrinUsingHash("abcdefghijklmnopqrstuvwxyzabc");			//415727 ns
+	r = FindTheFirstRecurringCharacterInStrinUsingMap("abcdefghijklmnopqrstuvwxyzabc");			//415727 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	n = FindTheFirstRecurringCharacterInStrinUsingHash("abc");						//54701 ns
+	n = FindTheFirstRecurringCharacterInStrinUsingMap("abc");						//54701 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 
 	start = std::chrono::steady_clock::now();
-	r = FindTheFirstRecurringCharacterInStrinUsingHash("aabbccdd");						//35738 ns
+	r = FindTheFirstRecurringCharacterInStrinUsingMap("aabbccdd");						//35738 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
 	
