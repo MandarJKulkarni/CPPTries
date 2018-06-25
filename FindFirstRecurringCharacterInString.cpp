@@ -5,7 +5,6 @@
 
 char FindTheFirstRecurringCharacterInStringUsingString(const char* str)
 {
-	std::string lst = "";
 	std::string dest = new char[strlen(str)];
 	dest[0] = str[0];
 	for (int i = 1; i < strlen(str); ++i)
@@ -19,8 +18,6 @@ char FindTheFirstRecurringCharacterInStringUsingString(const char* str)
 
 char FindTheFirstRecurringCharacterInStrinUsingHash(const char* str)
 {
-	std::string lst = "";
-	std::string dest = new char[strlen(str)];
 	std::unordered_map<char, int> charToCount;
 
 	charToCount[str[0]] = 1;
