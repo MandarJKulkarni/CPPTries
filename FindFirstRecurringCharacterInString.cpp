@@ -64,6 +64,8 @@ int main()
 	r = FindTheFirstRecurringCharacterInStrinUsingHash("aabbccdd");						//35738 ns
 	end = std::chrono::steady_clock::now();
 	std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << std::endl;
-
+	
+	//ToDo: Check for large size string like 100 or 1000
+	
 	return 0;
 }
