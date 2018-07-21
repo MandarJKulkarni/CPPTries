@@ -36,24 +36,29 @@ int main()
 	std::string test1Input = std::string("dcba");
 	if (ReverseWordsInASentence(test1Input) == "abcd")
 	{
-		std::cout << "Test1 passed";
+		std::cout << "Test1 passed"<<std::endl;
 	}
-	std::string test2Input = std::string("aaaa");
-	if (ReverseWordsInASentence(test2Input) == "aaaa")
+	std::string test2Input = std::string("edcba");
+	if (ReverseWordsInASentence(test2Input) == "abcde")
 	{
-		std::cout << "Test2 passed";
+		std::cout << "Test2 passed" << std::endl;
+	}
+	std::string test3Input = std::string("aaaa");
+	if (ReverseWordsInASentence(test3Input) == "aaaa")
+	{
+		std::cout << "Test3 passed" << std::endl;
 	}
 	
-	std::string test3Input = std::string("My Name is Mandar");
-	if (ReverseWordsInASentence(test3Input) == "yM emaN si radnaM")
+	std::string test4Input = std::string("My Name is Mandar");
+	if (ReverseWordsInASentence(test4Input) == "yM emaN si radnaM")
 	{
-		std::cout << "Test3 passed";
+		std::cout << "Test4 passed" << std::endl;
 	}
 
-	std::string test4Input = std::string("My Name is not Mandar");
-	if (ReverseWordsInASentence(test4Input) == "yM emaN si ton radnaM")
+	std::string test5Input = std::string("My Name is not Mandar");
+	if (ReverseWordsInASentence(test5Input) == "yM emaN si ton radnaM")
 	{
-		std::cout << "Test4 passed";
+		std::cout << "Test5 passed" << std::endl;
 	}
 
 	return 0;
