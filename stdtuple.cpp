@@ -14,9 +14,10 @@ void main()
 	std::tuple<int, float, std::string> myTuple = {1,2.2,"3.3"};
 
 	auto tuple2 = std::make_tuple("Creating", "tuple", 2);
-	int num = std::get<2>(tuple2);
+	int num = std::get<2>(tuple2);	//num =2
+
 	const int i = 1;
-	std::string message = std::get<i>(tuple2);
+	std::string message = std::get<i>(tuple2);	//message = tuple
 
 	auto combinedTuple = std::tuple_cat(myTuple, tuple2);
 
