@@ -8,7 +8,6 @@ std::tuple<int, char> functionReturningTuple()
 	return {1,'A'};	//list-initialization since C++17
 }
 
-
 void main()
 {
 	std::tuple<int, float, std::string> myTuple = {1,2.2,"3.3"};
