@@ -6,7 +6,9 @@ int main()
 {
 	std::variant<int, float> var1;
 	var1 = 12.33f;
-
+	
+	int numOfAlternatives = std::variant_size_v<decltype(var1)>;	//2
+	
 	float f1 = std::get<float>(var1);	//f1=12.33
 	float f2 = std::get<1>(var1);	// f2=12.33
 
