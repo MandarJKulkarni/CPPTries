@@ -1,24 +1,59 @@
 #include <variant>
 #include <iostream>
+#include <string>
+#include <vector>
 
 class student
 {
 	int rollno;
 	float percentage;
+public:
+	student() { std::cout << "In student constructor" << std::endl; };
+	~student() { std::cout << "In student destructor" << std::endl; }
+};
+class teacher
+{
+	std::string name;
+	std::vector<std::string> subjects;
+public:
+	teacher() { std::cout << "In teacher constructor" << std::endl; };
+	~teacher(){ std::cout << "In teacher destructor" << std::endl; }
+};
+class myClass
+{
+	int i;
+	float f;
+public:
+	myClass(int i, float f) {};
 };
 int main()
 {
 	std::variant<int, float> defaultvar;
 	std::cout << std::get<int>(defaultvar) << std::endl;	//prints 0
 	
-	//std::variant<student, int, float> var1;	//Doesn't compile because no default constructor for student
-	std::variant<std::monostate, student,int, float> var1;
+	//std::variant<myClass, int, float> vartry;	//Doesn't compile because no default constructor for myClass
+	std::variant<std::monostate,myClass, int, float> vartry;	//works!
+	if (std::holds_alternative<int>(vartry) || std::holds_alternative<float>(vartry) || std::holds_alternative<myClass>(vartry))
+	{
+		std::cout << "vartry default initialized" << std::endl;
+	}
+	else
+	{
+		auto x = std::get<std::monostate>(vartry);
+		std::cout << typeid(x).name() << std::endl;
+	}
+	
+	std::variant<student,int, float> var1;
 	var1 = 12.33f;
+
+	std::variant<student, teacher> multiclassVariant;	//Calls student constructor
+	student defaultStudent = std::get<0>(multiclassVariant);
+	multiclassVariant = teacher();		//Calls student destructor and then teacher constructor
 
 	int numOfAlternatives = std::variant_size_v<decltype(var1)>;	//3
 
 	float f1 = std::get<float>(var1);	//f1=12.33
-	float f2 = std::get<3>(var1);	// f2=12.33
+	float f2 = std::get<2>(var1);	// f2=12.33
 
 	try {
 		std::get<0>(var1);		//throws bad_variant_access
