@@ -1,6 +1,5 @@
 #include <variant>
 #include <iostream>
-#include <cassert>
 
 class student
 {
