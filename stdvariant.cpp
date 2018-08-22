@@ -11,6 +11,9 @@ class student
 };
 int main()
 {
+	std::variant<int, float> defaultvar;
+	std::cout << std::get<int>(defaultvar) << std::endl;	//prints 0
+	
 	//std::variant<student, int, float> var1;	//Doesn't compile because no default constructor for student
 	std::variant<std::monostate, student,int, float> var1;
 	var1 = 12.33f;
