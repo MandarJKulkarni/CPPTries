@@ -5,8 +5,6 @@ class student
 {
 	int rollno;
 	float percentage;
-
-	student();
 };
 int main()
 {
