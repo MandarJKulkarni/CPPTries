@@ -11,20 +11,21 @@ class student
 };
 int main()
 {
+	//std::variant<student, int, float> var1;	//Doesn't compile because no default constructor for student
 	std::variant<std::monostate, student,int, float> var1;
 	var1 = 12.33f;
 
-	int numOfAlternatives = std::variant_size_v<decltype(var1)>;	//2
+	int numOfAlternatives = std::variant_size_v<decltype(var1)>;	//3
 
 	float f1 = std::get<float>(var1);	//f1=12.33
-	float f2 = std::get<2>(var1);	// f2=12.33
+	float f2 = std::get<3>(var1);	// f2=12.33
 
 	try {
 		std::get<0>(var1);		//throws bad_variant_access
 	}
 	catch (const std::exception &ex)
 	{
-		std::cout << typeid(ex).name() << " " << ex.what();
+		std::cout << typeid(ex).name() << " " << ex.what()<<std::endl;
 	}
 
 	try {
@@ -32,7 +33,7 @@ int main()
 	}
 	catch (const std::exception &ex)
 	{
-		std::cout << typeid(ex).name() << " " << ex.what();
+		std::cout << typeid(ex).name() << " " << ex.what()<<std::endl;
 	}
 
 	int *i = std::get_if<int>(&var1);
@@ -55,7 +56,7 @@ int main()
 	{
 		int x = 100;
 	}
-	std::variant<int, float> var2;
+	std::variant<int, float> var2 = 20;
 	std::visit([](auto const &e) {std::cout << e; }, var2);
 	return 0;
 }
