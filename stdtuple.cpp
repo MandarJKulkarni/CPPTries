@@ -21,6 +21,7 @@ void main()
 	//int num2 = std::get<3> (tuple2)		//compilation error -out of range index
 
 	auto combinedTuple = std::tuple_cat(myTuple, tuple2);
+	int j = std::get<0>(combinedTuple);
 
 	int index;
 	char letter;
