@@ -17,6 +17,8 @@ void main()
 
 	const int i = 1;
 	std::string message = std::get<i>(tuple2);	//message = tuple
+	//std::string number = std::get<2>(tuple2);	//compilation error - type conversion
+	//int num2 = std::get<3> (tuple2)		//compilation error -out of range index
 
 	auto combinedTuple = std::tuple_cat(myTuple, tuple2);
 
