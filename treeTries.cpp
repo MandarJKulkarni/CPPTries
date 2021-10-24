@@ -1,3 +1,6 @@
+// kthMaxinBST.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
 #include <iostream>
 
 class Node
@@ -27,7 +30,7 @@ void PrintBSTInOrder(Node* root)
 		return;
 	if (root->left != NULL)
 		PrintBSTInOrder(root->left);
-	std::cout << root->Data << std::endl;
+	std::cout << root->Data << "\t";
 	if (root->right != NULL)
 		PrintBSTInOrder(root->right);
 }
@@ -38,11 +41,28 @@ void PrintBSTPostOrder(Node* root)
 		return;
 	if (root->right != NULL)
 		PrintBSTPostOrder(root->right);
-	std::cout << root->Data << std::endl;
+	std::cout << root->Data << "\t";
 	if (root->left != NULL)
 		PrintBSTPostOrder(root->left);
 }
-
+static int countElement = 0;
+void FindKthMaxElement(Node* root, int k)
+{
+	if (root == NULL)
+		return;
+	
+	if (root->right != NULL)
+		FindKthMaxElement(root->right,k);
+	countElement++;
+	if (countElement == k)
+	{
+		std::cout << root->Data;
+		return;
+	}
+		
+	if (root->left != NULL)
+		FindKthMaxElement(root->left, k);
+}
 
 int main()
 {
@@ -63,10 +83,24 @@ int main()
 
 
 	Node* r2 = new Node();
-	r2->Data = 5;
+	r2->Data = 7;
 	r1->right = r2;
 
-	PrintBSTInOrder(root);
-	PrintBSTPostOrder(root);
+	Node* r3 = new Node();
+	r3->Data = 10;
+	r2->right = r3;
 
+	Node* r4 = new Node();
+	r4->Data = 5;
+	r2->left = r4;
+
+	std::cout << "In Order" << std::endl;
+	PrintBSTInOrder(root);
+	std::cout << std::endl;
+	std::cout << "Post Order" << std::endl;
+	PrintBSTPostOrder(root);
+	std::cout << std::endl;
+	
+	FindKthMaxElement(root, 7);
+	FindKthMaxElement(root, 1);
 }
